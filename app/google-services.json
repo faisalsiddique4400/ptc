@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "425836418580",
+    "project_id": "ptc-trial",
+    "storage_bucket": "ptc-trial.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425836418580:android:4ab4dd07b72061e018b901",
+        "android_client_info": {
+          "package_name": "com.example.ptc_trial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425836418580-3fl73ouokke5es26u9aj82l621eei17c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2x9LNq_rSbp4puxoqVRQXYJrd8PlB7Us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425836418580-3fl73ouokke5es26u9aj82l621eei17c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
