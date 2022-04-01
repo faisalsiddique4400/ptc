@@ -7,28 +7,16 @@
     android:background="@color/primary"
     tools:context=".SplashScreen">
 
-    <TextView
-        android:id="@+id/ptcTitle"
-        android:letterSpacing="0.2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_mono_bold"
-        android:text="@string/ptc"
-        android:textColor="@color/white"
-        android:textSize="120sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ptc_abbr"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@+id/ptcTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+   <ImageView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       android:src="@drawable/ptc_logo"
+       android:paddingStart="20dp"
+       android:paddingEnd="20dp"
+       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

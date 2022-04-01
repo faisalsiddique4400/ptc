@@ -39,6 +39,7 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainImage" />
 
 
@@ -60,7 +61,7 @@
         android:layout_height="wrap_content"
         android:text="Call"
         app:cornerRadius="5dp"
-        app:layout_constraintBottom_toTopOf="@id/divider3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/sendMessage"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -70,7 +71,7 @@
         android:layout_height="wrap_content"
         android:text="Text"
         app:cornerRadius="5dp"
-        app:layout_constraintBottom_toTopOf="@id/divider3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/call" />
 
@@ -81,7 +82,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@id/mainPrice"
+        app:layout_constraintBottom_toTopOf="@id/call"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -95,7 +96,7 @@
         android:textColor="@color/primary"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/divider3"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -106,7 +107,7 @@
         android:layout_marginBottom="20dp"
         android:text="Lahore"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/divider3"
         app:layout_constraintEnd_toEndOf="parent" />
 
 

@@ -15,33 +15,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/ptc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ptc"
-                android:textColor="@color/primary"
-                android:textSize="60sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView"
+            <ImageView
+                android:id="@+id/signUpScreenLogo"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ptc_logo_white_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_mono_bold"
-                android:letterSpacing="-0.09"
-                android:text="@string/signup_text"
-                android:textColor="@color/primary"
-                android:textSize="64sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ptc" />
-
-
+                />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/userNameLayout"
@@ -58,7 +41,7 @@
                 app:boxCornerRadiusTopStart="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
+                app:layout_constraintTop_toBottomOf="@+id/signUpScreenLogo">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/userName"

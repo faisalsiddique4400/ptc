@@ -38,7 +38,6 @@ public class Home extends Fragment {
         binding.postShowRecyclerView.setAdapter(postAdapter);
         binding.postShowRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         fetPosts();
-
         return binding.getRoot();
     }
 
@@ -54,8 +53,14 @@ public class Home extends Fragment {
                             postList.add(postModel);
                         }
                     }
+                    binding.postCardProgressBar.setVisibility(View.INVISIBLE);
                     postAdapter.notifyDataSetChanged();
                 }
+                else{
+                    binding.postCardProgressBar.setVisibility(View.INVISIBLE);
+                    binding.noContent.setVisibility(View.VISIBLE);
+                }
+
 
             }
 
@@ -64,5 +69,6 @@ public class Home extends Fragment {
 
             }
         });
+
     }
 }

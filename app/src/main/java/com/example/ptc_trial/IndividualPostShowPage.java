@@ -30,6 +30,6 @@ public class IndividualPostShowPage extends AppCompatActivity {
         binding.mainDescription.setText(postData.getDescription());
         binding.mainPrice.setText(postData.getPrice());
         binding.mainLocation.setText(postData.getLocation());
-        Picasso.get().load(postData.getPictureUri()).placeholder(R.drawable.avatar).into(binding.mainImage);
+        Picasso.get().load(postData.getPictureUri()).placeholder(null).into(binding.mainImage);
     }
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,7 +40,7 @@ public class PostShowAdapter extends RecyclerView.Adapter<PostShowAdapter.PostVi
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
         PostModel post = postList.get(position);
-        Picasso.get().load(post.getPictureUri()).placeholder(R.drawable.avatar).into(holder.imageView);
+        Picasso.get().load(post.getPictureUri()).placeholder(null).into(holder.imageView);
         holder.name.setText(post.getName());
         holder.location.setText(post.getLocation());
         holder.price.setText(post.getPrice());
@@ -47,11 +48,12 @@ public class PostShowAdapter extends RecyclerView.Adapter<PostShowAdapter.PostVi
         holder.dataCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(context, IndividualPostShowPage.class);
-                intent.putExtra("PostData",postList.get(holder.getAdapterPosition()));
+                Intent intent = new Intent(context, IndividualPostShowPage.class);
+                intent.putExtra("PostData", postList.get(holder.getAdapterPosition()));
                 context.startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -64,11 +66,12 @@ public class PostShowAdapter extends RecyclerView.Adapter<PostShowAdapter.PostVi
         ImageView imageView;
         TextView name, description, location, price;
         MaterialCardView dataCard;
+        ProgressBar postCardProgressBar;
 
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image);
-            dataCard=itemView.findViewById(R.id.DataCard);
+            dataCard = itemView.findViewById(R.id.DataCard);
             name = itemView.findViewById(R.id.name);
             description = itemView.findViewById(R.id.description);
             location = itemView.findViewById(R.id.location);
