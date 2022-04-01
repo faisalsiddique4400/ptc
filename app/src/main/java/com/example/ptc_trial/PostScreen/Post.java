@@ -22,6 +22,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.Date;
+
 public class Post extends Fragment implements View.OnClickListener {
     FragmentPostBinding binding;
     int IMAGE_PICK_REQUEST_CODE = 1;
@@ -85,7 +87,7 @@ public class Post extends Fragment implements View.OnClickListener {
     }
 
     private void savePost() {
-        final StorageReference storageRef = storage.getReference().child("posts").child(mAuth.getUid()+counter++);
+        final StorageReference storageRef = storage.getReference().child("posts").child(mAuth.getUid()+"|"+(new Date()).getTime());
         storageRef.putFile(fileUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

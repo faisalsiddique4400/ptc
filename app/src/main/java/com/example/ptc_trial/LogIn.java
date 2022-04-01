@@ -23,7 +23,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class LogIn extends AppCompatActivity implements View.OnClickListener {
@@ -78,7 +77,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
                 finish();
                 startActivity(new Intent(LogIn.this, SignUp.class));
                 break;
-            case R.id.signInButton:
+            case R.id.call:
                 validate();
                 break;
             case R.id.googleSignIn:

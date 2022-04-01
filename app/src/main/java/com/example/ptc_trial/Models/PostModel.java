@@ -1,7 +1,9 @@
 package com.example.ptc_trial.Models;
 
-public class PostModel {
-    String uid,name,age,description,location,color,price,pictureUri;
+import java.io.Serializable;
+
+public class PostModel implements Serializable {
+    String uid, name, age, description, location, color, price, pictureUri;
 
     public PostModel() {
     }
