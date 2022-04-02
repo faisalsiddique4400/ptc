@@ -1,6 +1,7 @@
 package com.example.ptc_trial;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,8 @@ public class Home extends Fragment {
     ArrayList<PostModel> postList;
     FirebaseDatabase database;
     PostShowAdapter postAdapter;
+    int dogCounter=0,catCounter=0,bunnyCounter=0,birdCounter=0,otherCounter=0;
+    String totalOf="Total of ";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,11 +40,23 @@ public class Home extends Fragment {
         postAdapter = new PostShowAdapter(getContext(), postList);
         binding.postShowRecyclerView.setAdapter(postAdapter);
         binding.postShowRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
-        fetPosts();
+        fetchPosts();
         return binding.getRoot();
     }
 
-    private void fetPosts() {
+    private void populateCategory() {
+        String totalOfCat=totalOf+String.valueOf(catCounter);
+        String totalOfDog=totalOf+String.valueOf(dogCounter);
+        String totalOfBird=totalOf+String.valueOf(otherCounter);
+        String totalOfBunny=totalOf+String.valueOf(bunnyCounter);
+        binding.catCount.setText(totalOfCat);
+        binding.dogCount.setText(totalOfDog);
+        binding.bunniesCount.setText(totalOfBunny);
+        binding.birdCount.setText(totalOfBird);
+
+    }
+
+    private void fetchPosts() {
         database.getReference("posts").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -50,10 +65,12 @@ public class Home extends Fragment {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         for (DataSnapshot snapshot1 : dataSnapshot.getChildren()) {
                             PostModel postModel = snapshot1.getValue(PostModel.class);
+                            checkCategory(postModel.getCategory());
                             postList.add(postModel);
                         }
                     }
                     binding.postCardProgressBar.setVisibility(View.INVISIBLE);
+                    populateCategory();
                     postAdapter.notifyDataSetChanged();
                 }
                 else{
@@ -69,6 +86,22 @@ public class Home extends Fragment {
 
             }
         });
+
+    }
+
+    private void checkCategory(String category) {
+        Log.d("Category",category);
+
+      if(category.equals("Bird"))
+          birdCounter+=1;
+      else if(category.equals("Bunny"))
+          bunnyCounter+=1;
+      else if(category.equals("Cat"))
+          catCounter+=1;
+      else if(category.equals("Dog"))
+          dogCounter+=1;
+      else
+          otherCounter+=1;
 
     }
 }

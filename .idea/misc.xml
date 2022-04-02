@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/drawable/arrow_spinner.xml" value="0.22604166666666667" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/drawable/bg_receiver.xml" value="0.3828125" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/drawable/bg_sender.xml" value="0.3828125" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/drawable/circle.xml" value="0.3828125" />
@@ -11,6 +12,7 @@
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.3828125" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/drawable/ic_baseline_store.xml" value="0.3828125" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/drawable/search_bar.xml" value="0.3828125" />
+        <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/drawable/spinner.xml" value="0.3828125" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/font/roboto_mono_bold.xml" value="0.396875" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/layout/activity_chat_screen.xml" value="0.37467866323907456" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/layout/activity_individual_post_show_page.xml" value="0.36666666666666664" />
@@ -19,6 +21,7 @@
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/layout/activity_phone_verifcation_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/layout/activity_splash_screen.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/layout/category_spinner.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/layout/chat_sample.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/layout/fragment_chat.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/layout/fragment_home.xml" value="0.33" />

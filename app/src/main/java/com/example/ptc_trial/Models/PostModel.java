@@ -3,7 +3,8 @@ package com.example.ptc_trial.Models;
 import java.io.Serializable;
 
 public class PostModel implements Serializable {
-    String uid, name, age, description, location, color, price, pictureUri;
+    String uid, name, age, description, location, color, price, pictureUri, category;
+
 
     public PostModel() {
     }
@@ -27,6 +28,14 @@ public class PostModel implements Serializable {
         this.color = color;
         this.price = price;
         this.pictureUri = pictureUri;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getPictureUri() {

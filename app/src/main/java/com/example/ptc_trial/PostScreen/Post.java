@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -22,6 +23,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Post extends Fragment implements View.OnClickListener {
@@ -32,7 +34,7 @@ public class Post extends Fragment implements View.OnClickListener {
     FirebaseStorage storage;
     Uri fileUri = null;
     private PostModel post;
-    int counter=0;
+    ArrayList<String> categoryData;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,10 +43,18 @@ public class Post extends Fragment implements View.OnClickListener {
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
+        addCategoryData();
         binding.postButton.setOnClickListener(this);
         post = new PostModel();
         binding.newPost.setOnClickListener(this);
         return binding.getRoot();
+    }
+
+    private void addCategoryData() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.category, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        binding.categorySpinner.setAdapter(adapter);
     }
 
     @Override
@@ -75,6 +85,8 @@ public class Post extends Fragment implements View.OnClickListener {
             Toast.makeText(getContext(), "Please add at lease one picture", Toast.LENGTH_SHORT).show();
         } else {
             binding.postScreenProgressBar.setVisibility(View.VISIBLE);
+            post.setCategory(binding.categorySpinner.getSelectedItem().toString());
+            Log.d("Category",binding.categorySpinner.getSelectedItem().toString());
             post.setName(binding.name.getText().toString());
             post.setAge(binding.age.getText().toString());
             post.setLocation(binding.location.getText().toString());
@@ -87,7 +99,7 @@ public class Post extends Fragment implements View.OnClickListener {
     }
 
     private void savePost() {
-        final StorageReference storageRef = storage.getReference().child("posts").child(mAuth.getUid()+"|"+(new Date()).getTime());
+        final StorageReference storageRef = storage.getReference().child("posts").child(mAuth.getUid() + "|" + (new Date()).getTime());
         storageRef.putFile(fileUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -95,7 +107,7 @@ public class Post extends Fragment implements View.OnClickListener {
                     @Override
                     public void onSuccess(Uri uri) {
                         post.setPictureUri(uri.toString());
-                        Log.d("Uploaded URI",uri.toString());
+                        Log.d("Uploaded URI", uri.toString());
                         database.getReference().child("posts").child(mAuth.getUid()).push().setValue(post);
                         binding.postScreenProgressBar.setVisibility(View.INVISIBLE);
                         Toast.makeText(getContext(), "Posted Successfully", Toast.LENGTH_SHORT).show();
@@ -127,7 +139,7 @@ public class Post extends Fragment implements View.OnClickListener {
         if (requestCode == IMAGE_PICK_REQUEST_CODE) {
             if (data.getData() != null) {
                 fileUri = data.getData();
-                Log.d("FileURI",fileUri.toString());
+                Log.d("FileURI", fileUri.toString());
                 binding.imageView.setImageURI(fileUri);
                 binding.imageView.setTag(fileUri);
             }

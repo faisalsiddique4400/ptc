@@ -16,7 +16,6 @@
     <string name="not_a_member">Not a member? Sign Up</string>
     <string name="already_member">Already a member? Log In</string>
     <string name="log_out">Log Out</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
     <string name="chat">Chat</string>
@@ -33,7 +32,7 @@
     <string name="name">Name</string>
     <string name="age">Age</string>
     <string name="location">Location</string>
-    <string name="type">Type...</string>
+    <string name="type">Type…</string>
     <string name="enter_message_to_send">Enter Message to send</string>
     <string name="user_name">User Name</string>
     <string name="phone">Phone</string>
@@ -42,4 +41,12 @@
     <string name="otp">OTP</string>
     <string name="verify">Verify</string>
     <string name="verify_phone_number">Verify Phone Number</string>
+    <string name="bunnies">Bunnies</string>
+    <string-array name="category">
+        <item>Dog</item>
+        <item>Cat</item>
+        <item>Bird</item>
+        <item>Bunny</item>
+        <item>Others</item>
+    </string-array>
 </resources>

@@ -1,6 +1,10 @@
 package com.example.ptc_trial;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -37,9 +41,9 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityLogInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        checkConnection();
         binding.gotoSignUp.setOnClickListener(this);
         binding.signInButton.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
@@ -47,6 +51,32 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
         createRequest();
         binding.googleSignIn.setOnClickListener(this);
 
+    }
+
+    private void checkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(getApplicationContext().CONNECTIVITY_SERVICE);
+        if (!(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED)) {
+            AlertDialog.Builder builder;
+            builder = new AlertDialog.Builder(LogIn.this);
+            builder.setMessage("Please turn on your internet connection");
+            builder.setTitle("Internet not Connected");
+            builder.setCancelable(false);
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+            binding.email.setEnabled(false);
+            binding.password.setEnabled(false);
+            binding.signInButton.setEnabled(false);
+            binding.gotoSignUp.setEnabled(false);
+            binding.googleSignIn.setEnabled(false);
+            binding.facebook.setEnabled(false);
+        }
     }
 
 //    @Override
@@ -78,7 +108,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
                 finish();
                 startActivity(new Intent(LogIn.this, SignUp.class));
                 break;
-            case R.id.call:
+            case R.id.signInButton:
                 validate();
                 break;
             case R.id.googleSignIn:
