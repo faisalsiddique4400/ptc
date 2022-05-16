@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Faisal Siddique/AndroidStudioProjects/PTC_Updated/ptc/app/src/main/res/layout/activity_category_detail.xml" value="0.225" />
+        <entry key="..\:/Users/Faisal Siddique/AndroidStudioProjects/PTC_Updated/ptc/app/src/main/res/layout/activity_individual_post_show_page.xml" value="0.225" />
+        <entry key="..\:/Users/Faisal Siddique/AndroidStudioProjects/PTC_Updated/ptc/app/src/main/res/layout/activity_main.xml" value="0.225" />
+        <entry key="..\:/Users/Faisal Siddique/AndroidStudioProjects/PTC_Updated/ptc/app/src/main/res/layout/category_detail_view.xml" value="0.2764612954186414" />
+        <entry key="..\:/Users/Faisal Siddique/AndroidStudioProjects/PTC_Updated/ptc/app/src/main/res/layout/fragment_chat.xml" value="0.225" />
+        <entry key="..\:/Users/Faisal Siddique/AndroidStudioProjects/PTC_Updated/ptc/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/Faisal Siddique/AndroidStudioProjects/PTC_Updated/ptc/app/src/main/res/layout/fragment_post.xml" value="0.225" />
+        <entry key="..\:/Users/Faisal Siddique/AndroidStudioProjects/PTC_Updated/ptc/app/src/main/res/layout/post_show.xml" value="0.225" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/drawable/arrow_spinner.xml" value="0.22604166666666667" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/drawable/bg_receiver.xml" value="0.3828125" />
         <entry key="..\:/Users/Zi/AndroidStudioProjects/PTC_TRIAL/app/src/main/res/drawable/bg_sender.xml" value="0.3828125" />

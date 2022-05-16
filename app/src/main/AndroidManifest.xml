@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PTC_TRIAL"
         android:windowSoftInputMode="adjustResize|stateAlwaysVisible">
         <activity
+            android:name=".CategoryDetail"
+            android:exported="false" />
+        <activity
             android:name=".IndividualPostShowPage"
             android:exported="false" />
         <activity
