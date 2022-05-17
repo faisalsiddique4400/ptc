@@ -86,6 +86,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
         if (user != null) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 
@@ -139,8 +140,8 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
                         if (mAuth.getCurrentUser().isEmailVerified()) {
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
                             finish();
+                            startActivity(intent);
                         } else {
                             binding.progressBar.setVisibility(View.INVISIBLE);
                             Toast.makeText(getApplicationContext(), "Please Verify email", Toast.LENGTH_SHORT).show();
@@ -189,6 +190,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
                             database.getReference().child("Users").child(id).setValue(user);
                             Toast.makeText(getApplicationContext(), "Signed in with Google", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            finish();
                             startActivity(intent);
                         } else {
                             Toast.makeText(getApplicationContext(), "Unsuccessful, Try Again", Toast.LENGTH_SHORT).show();

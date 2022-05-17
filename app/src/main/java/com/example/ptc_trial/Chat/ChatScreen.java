@@ -31,14 +31,14 @@ public class ChatScreen extends AppCompatActivity {
     FirebaseAuth auth;
     ActivityChatScreenBinding binding;
     Context context;
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(context, MainActivity.class);
-        intent.putExtra("ChatScreen",2);
-        finish();
-        startActivity(intent);
-    }
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        Intent intent = new Intent(context, MainActivity.class);
+//        intent.putExtra("ChatScreen",2);
+//        finish();
+//        startActivity(intent);
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.ptc_trial.Adapters.PostShowAdapter;
 import com.example.ptc_trial.Models.PostModel;
 import com.example.ptc_trial.databinding.FragmentHomeBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,6 +28,7 @@ public class Home extends Fragment implements View.OnClickListener {
 
     FragmentHomeBinding binding;
     ArrayList<PostModel> postList;
+    int count = 0;
     FirebaseDatabase database;
     PostShowAdapter postAdapter;
     int dogCounter = 0, catCounter = 0, bunnyCounter = 0, birdCounter = 0, otherCounter = 0;
@@ -62,6 +65,8 @@ public class Home extends Fragment implements View.OnClickListener {
     }
 
     private void fetchPosts() {
+
+
         database.getReference("posts").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -71,7 +76,10 @@ public class Home extends Fragment implements View.OnClickListener {
                         for (DataSnapshot snapshot1 : dataSnapshot.getChildren()) {
                             PostModel postModel = snapshot1.getValue(PostModel.class);
                             checkCategory(postModel.getCategory());
-                            postList.add(postModel);
+                            if (count < 5) {
+                                postList.add(postModel);
+                                count++;
+                            }
                         }
                     }
                     binding.postCardProgressBar.setVisibility(View.INVISIBLE);

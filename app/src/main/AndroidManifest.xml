@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ptc_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PTC_TRIAL"
-        android:windowSoftInputMode="adjustResize|stateAlwaysVisible">
+        android:windowSoftInputMode="adjustResize">
         <activity
             android:name=".CategoryDetail"
             android:exported="false" />

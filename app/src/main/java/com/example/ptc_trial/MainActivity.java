@@ -25,13 +25,6 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Intent intent=getIntent();
-        if(intent!=null){
-            int a=intent.getIntExtra("ChatScreen",1);
-            if(a==2){
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,new Chat()).commit();
-            }
-        }
         binding.bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
 
             @Override
@@ -72,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         if (binding.bottomNavigation.getSelectedItemId() == R.id.Home) {
             super.onBackPressed();
             finish();
-            mAuth.signOut();
         } else {
             binding.bottomNavigation.setSelectedItemId(R.id.Home);
         }

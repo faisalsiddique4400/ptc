@@ -23,7 +23,7 @@
     <string name="store">Store</string>
     <string name="settings">Settings</string>
     <string name="text1">Find your</string>
-    <string name="text2">Lovely Pet everywhere</string>
+    <string name="text2">Lovely Pets everywhere</string>
     <string name="cats">Cat</string>
     <string name="dogs">Dog</string>
     <string name="birds">Bird</string>
@@ -41,12 +41,11 @@
     <string name="otp">OTP</string>
     <string name="verify">Verify</string>
     <string name="verify_phone_number">Verify Phone Number</string>
-    <string name="bunnies">Bunnies</string>
+    <string name="bunnies">Bunny</string>
     <string-array name="category">
         <item>Dog</item>
         <item>Cat</item>
         <item>Bird</item>
         <item>Bunny</item>
-        <item>Others</item>
     </string-array>
 </resources>
