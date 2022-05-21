@@ -4,14 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.ptc_trial.Adapters.ChatAdapter;
-import com.example.ptc_trial.MainActivity;
 import com.example.ptc_trial.Models.Message;
 import com.example.ptc_trial.R;
 import com.example.ptc_trial.databinding.ActivityChatScreenBinding;
@@ -44,7 +43,7 @@ public class ChatScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityChatScreenBinding.inflate(getLayoutInflater());
-        context=this;
+        context = this;
         setContentView(binding.getRoot());
         binding.chatScreenProgressBar.setVisibility(View.VISIBLE);
         getSupportActionBar().hide();
@@ -58,15 +57,15 @@ public class ChatScreen extends AppCompatActivity {
         binding.chatDisplayName.setText(userName);
         Picasso.get().load(profilePic).placeholder(R.drawable.avatar).into(binding.chatAvatar);
 
-        binding.arrowBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, MainActivity.class);
-                intent.putExtra("ChatScreen",2);
-                finish();
-                startActivity(intent);
-            }
-        });
+//        binding.arrowBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(context, MainActivity.class);
+//                intent.putExtra("ChatScreen",2);
+//                finish();
+//                startActivity(intent);
+//            }
+//        });
 
 
         ArrayList<Message> messages = new ArrayList<>();
@@ -91,6 +90,7 @@ public class ChatScreen extends AppCompatActivity {
                     messages.add(messageModel);
                 }
                 chatAdapter.notifyDataSetChanged();
+                binding.sendScreenRecyclerView.scrollToPosition(messages.size()-1);
             }
 
             @Override
@@ -101,21 +101,26 @@ public class ChatScreen extends AppCompatActivity {
         binding.sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String message = binding.sendText.getText().toString();
-                final Message messageModel = new Message(senderId, message);
-                messageModel.setTime(new Date().getTime());
-                binding.sendText.setText("");
-                database.getReference().child("chats").child(senderRoom).push().setValue(messageModel).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        database.getReference().child("chats").child(receiverRoom).push().setValue(messageModel).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
+                if (binding.sendText.getText().equals("") || binding.sendText.getText().toString().isEmpty()) {
+                    Toast.makeText(ChatScreen.this, "Please enter message to send", Toast.LENGTH_SHORT).show();
+                } else {
+                    String message = binding.sendText.getText().toString();
+                    final Message messageModel = new Message(senderId, message);
+                    messageModel.setTime(new Date().getTime());
+                    binding.sendText.setText("");
+                    database.getReference().child("chats").child(senderRoom).push().setValue(messageModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            database.getReference().child("chats").child(receiverRoom).push().setValue(messageModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
 
-                            }
-                        });
-                    }
-                });
+                                }
+                            });
+                        }
+                    });
+                }
+
             }
         });
 

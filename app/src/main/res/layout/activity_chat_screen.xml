@@ -13,13 +13,17 @@
         android:layout_centerInParent="true"
         android:visibility="invisible"
         />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sendScreenRecyclerView"
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
         android:layout_height="match_parent"
         android:layout_above="@id/linearLayout"
-        android:layout_below="@+id/sendScreenToolbar" />
+        android:layout_below="@+id/sendScreenToolbar"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -46,6 +50,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/sendText"
+                android:text=""
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="text" />
@@ -71,24 +76,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/arrowBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_arrow_back_white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/chatAvatar"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="10dp"
                 android:src="@drawable/avatar"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/arrowBack"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="34dp" />
 
             <TextView
                 android:id="@+id/chatDisplayName"

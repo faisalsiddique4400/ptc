@@ -60,7 +60,7 @@ public class Post extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.update:
+            case R.id.postButton:
                 validateDate();
                 break;
             case R.id.newPost:
